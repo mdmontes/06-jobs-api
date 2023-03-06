@@ -1,7 +1,7 @@
 {
   "name": "06-jobs-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "```bash npm install && npm start ```",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
@@ -27,5 +27,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.9"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdmontes/06-jobs-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mdmontes/06-jobs-api/issues"
+  },
+  "homepage": "https://github.com/mdmontes/06-jobs-api#readme"
 }
