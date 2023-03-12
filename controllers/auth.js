@@ -18,6 +18,8 @@ const login = async(req, res)=>{
   }
 
   const user = await User.findOne({email})
+  if (!user) {
+    throw new UnauthenticatedError('Invalid Credentials')}
 
   const isPasswordCorrect = await user.comparePassword(password)
   if (!isPasswordCorrect) {
@@ -27,7 +29,6 @@ const login = async(req, res)=>{
   const token = user.createJWT()
   res.status(StatusCodes.CREATED).json({msg: `the user ${user.name} has logged on`, token});
 }
-
 
 module.exports = {
   register,
