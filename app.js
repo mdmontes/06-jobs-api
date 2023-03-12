@@ -42,7 +42,9 @@ app.use(xss());
 // app.get('/', (req, res) => {
 //   res.send('jobs api');
 // });
-
+app.get('/', (req, res) => {
+  res.send('<h1>Lucky-Sniffles Pet Store API</h1><a href="/api-docs">Documentation</a>');
+});
 // routes
 app.use('/api/v1/auth', authrouter);
 app.use('/api/v1/products', authenticate , productsrouter); 
