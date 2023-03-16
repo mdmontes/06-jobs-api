@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes')
-const { BadRequestError, UnauthenticatedError } = require('../errors')
+const { BadRequestError, NotFoundError} = require('../errors')
 const {Product} = require('../models/Products')
 
 const getAllProducts = async (req, res) =>{
@@ -20,11 +20,11 @@ const getOneProduct = async (req, res) =>{
     user: { userId },
     params: { id: productID },
   } = req
-
-  const products = await Product.findOne({_id: productID, createdBy_ID: userId })
   
-  if (!products) {
-    throw new NotFoundError(`No job with id ${productID}`)}
+  const products = await Product.findOne({_id: productID, createdBy_ID: userId })
+
+  if (!products || products === null) {
+    throw new NotFoundError(`No product with id ${productID}`)}
 
   res.status(StatusCodes.OK).json(products);
 }
@@ -46,7 +46,7 @@ const editOneProduct = async (req, res) =>{
     { new: true, runValidators: true })
   
   if (!products) {
-    throw new NotFoundError(`No job with id ${productID}`)}
+    throw new NotFoundError(`No product with id ${productID}`)}
 
   res.status(StatusCodes.OK).json(products)
 }
@@ -62,7 +62,7 @@ const deleteOneProduct = async (req, res) =>{
     createdBy_ID: userId })
 
   if (!products) {
-    throw new NotFoundError(`No job with id ${productID}`)}
+    throw new NotFoundError(`No product with id ${productID}`)}
 
   res.status(StatusCodes.OK).json({msg: `The product ${products.name} with productid ${products._id} was deleted`});  
 }
