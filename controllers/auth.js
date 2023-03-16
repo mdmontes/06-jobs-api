@@ -6,7 +6,7 @@ const register = async(req, res)=>{
   // const {name, email ,password} = req.body
   const user = await User.create(req.body)
   const token = user.createJWT()
-  res.status(StatusCodes.CREATED).json({msg: `the user ${user.name} was created`, token});
+  res.status(StatusCodes.OK).json({msg: `the user ${user.name} was created`, token});
   ;
 }
 

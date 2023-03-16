@@ -32,7 +32,7 @@ const productSchema = new mongoose.Schema({
   
   user_name: {
     type: String,
-    required: [true, 'product price must be provided']},
+    required: [true, 'user name must be provided']},
 
   createdBy_ID: {
     type: mongoose.Types.ObjectId,
