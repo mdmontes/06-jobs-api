@@ -1,5 +1,6 @@
 require('dotenv').config();
 require('express-async-errors');
+const fs = require("fs");
 
 // extra security packages
 const helmet = require('helmet');
@@ -8,8 +9,9 @@ const xss = require('xss-clean');
 const rateLimiter = require('express-rate-limit');
 
 const swaggerUI = require('swagger-ui-express');
-const YAML = require('yamljs');
-const swaggerDocument = YAML.load('./swagger.yaml');
+const YAML = require('yaml');
+const file  = fs.readFileSync('./swagger.yaml', 'utf8')
+const swaggerDocument = YAML.parse(file)
 
 const express = require('express');
 const app = express();

@@ -1,9 +1,8 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: CTD 06-lucky-sniffles-API PROD
   contact: {}
   version: '1.0'
-jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
 servers:
 - url: https://lucky-sniffle-petstore.onrender.com/api/v1
   variables: {}
@@ -22,11 +21,10 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/RegisterRequest'
-              - examples:
-                - name: sniffly_one
+              - example:
+                  name: sniffly_one
                   email: sniffly_kittykat@gmail.com
                   password: mickymouse
-              contentMediaType: application/json
             example:
               name: sniffly_one
               email: sniffly_kittykat@gmail.com
@@ -38,7 +36,6 @@ paths:
           headers: {}
       deprecated: false
       security: []
-    parameters: []
   /auth/login:
     post:
       tags:
@@ -53,10 +50,9 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/LoginRequest'
-              - examples:
-                - email: sniffly_kittykat@gmail.com
+              - example:
+                  email: sniffly_kittykat@gmail.com
                   password: mickymouse
-              contentMediaType: application/json
             example:
               email: sniffly_kittykat@gmail.com
               password: mickymouse
@@ -67,7 +63,6 @@ paths:
           headers: {}
       deprecated: false
       security: []
-    parameters: []
   /products:
     get:
       tags:
@@ -95,13 +90,12 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/createProductRequest'
-              - examples:
-                - name: fellar_necklace
+              - example:
+                  name: fellar_necklace
                   price: '3.50'
                   featured: 'true'
                   rating: '3.1'
                   manufacturer: Calibaba
-              contentMediaType: application/json
             example:
               name: fellar_necklace
               price: '3.50'
@@ -116,8 +110,6 @@ paths:
       deprecated: false
       security:
       - bearer: []
-    parameters: []
-
   /products/{id}:
     parameters:
     - in: path
@@ -131,6 +123,7 @@ paths:
       - Products
       summary: getOneProduct
       operationId: getOneProduct
+      parameters: []
       responses:
         '200':
           description: ''
@@ -138,12 +131,13 @@ paths:
       deprecated: false
       security:
       - bearer: []
-
+  
     patch:
       tags:
       - Products
       summary: editOneProduct
       operationId: editOneProduct
+      parameters: []
       requestBody:
         description: ''
         content:
@@ -151,14 +145,13 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/editOneProductRequest'
-              - examples:
-                - name: renamed cat product
+              - example:
+                  name: renamed cat product
                   price: '3.45'
                   rating: '2.1'
                   manufacturer: SnifflyOne
                   featured: 'false'
                   shipping_status: shipped
-              contentMediaType: application/json
             example:
               name: renamed cat product
               price: '3.45'
@@ -179,6 +172,7 @@ paths:
       - Products
       summary: deleteOneProduct
       operationId: deleteOneProduct
+      parameters: []
       responses:
         '200':
           description: ''
@@ -202,8 +196,8 @@ components:
           type: string
         password:
           type: string
-      examples:
-      - name: sniffly_one
+      example:
+        name: sniffly_one
         email: sniffly_kittykat@gmail.com
         password: mickymouse
     LoginRequest:
@@ -217,8 +211,8 @@ components:
           type: string
         password:
           type: string
-      examples:
-      - email: sniffly_kittykat@gmail.com
+      example:
+        email: sniffly_kittykat@gmail.com
         password: mickymouse
     createProductRequest:
       title: createProductRequest
@@ -240,8 +234,8 @@ components:
           type: string
         manufacturer:
           type: string
-      examples:
-      - name: fellar_necklace
+      example:
+        name: fellar_necklace
         price: '3.50'
         featured: 'true'
         rating: '3.1'
@@ -269,8 +263,8 @@ components:
           type: string
         shipping_status:
           type: string
-      examples:
-      - name: renamed cat product
+      example:
+        name: renamed cat product
         price: '3.45'
         rating: '2.1'
         manufacturer: SnifflyOne
@@ -282,8 +276,6 @@ components:
       scheme: bearer
 security: []
 tags:
-- name: Misc
-  description: ''
 - name: Auth
   description: ''
 - name: Products
