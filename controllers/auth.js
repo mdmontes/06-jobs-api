@@ -27,7 +27,7 @@ const login = async(req, res)=>{
   }
 
   const token = user.createJWT()
-  res.status(StatusCodes.CREATED).json({msg: `the user ${user.name} has logged on`, token});
+  res.status(StatusCodes.OK).json({msg: `the user ${user.name} has logged on`, token});
 }
 
 module.exports = {
