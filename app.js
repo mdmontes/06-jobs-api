@@ -46,9 +46,9 @@ app.use(xss());
 // extra packages
 
 
-app.get('/', (req, res) => {
-  res.send('jobs api');
-});
+// app.get('/', (req, res) => {
+//   res.send('jobs api');
+// });
 app.get('/', (req, res) => {
   res.send('<h1>Lucky-Sniffles Pet Store API</h1><a href="/api-docs">Documentation</a>');
 });
