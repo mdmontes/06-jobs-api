@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fellar Sniffles Site</title>
+</head>
+
+<body>
+    <h1>Fellar Sniffles Site</h1>
+    <button type="button" id="logoff" style="display:none;">logoff</button>
+    <hr>
+    <p id="message"></p>
+    <hr>
+    <div id="login-register" style="display:none;">
+        <button type="button" id="login">login</button>
+        <button type="button" id="register">register</button>
+    </div>
+    <div id="login-div" style="display:none;">
+        <form>
+            <div>
+                <label for="email">email:</label>
+                <input type="email" id="email">
+            </div>
+            <div>
+                <label for="password">password:</label>
+                <input type="password" id="password">
+            </div>
+            <button type="button" id="login-button">login</button>
+            <button type="button" id="login-cancel">cancel</button>
+        </form>
+    </div>
+    <div id="register-div" style="display:none;">
+        <form>
+            <div>
+                <label for="name">name:</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="email1">email:</label>
+                <input type="email" id="email1">
+            </div>
+            <div>
+                <label for="password1">password:</label>
+                <input type="password" id="password1">
+            </div>
+            <div>
+                <label for="password2">verify password:</label>
+                <input type="password" id="password2">
+            </div>
+            <button type="button" id="register-button">register</button>
+            <button type="button" id="register-cancel">cancel</button>
+        </form>
+    </div>
+    <div id="products" style="display:none;">
+        <p id="products-message"></p>
+        <table id="products-table" style="display:none;">
+            <tr id="products-table-header">
+                <th>Product</th>
+                <th>Price</th>
+                <th>Featured</th>
+                <th>Rating</th>
+                <th>Created On</th>
+                <th>Manufacturer</th>
+                <th>Shipping Status</th>
+                <th>User Name</th>
+                <th colspan="2"></th>
+            </tr>
+        </table>
+        <button type="button" id="add-product">add product</button>
+    </div>
+    <div id="edit-product" style="display:none;">
+        <form>
+            <div>
+                <label for="Product">Product:</label>
+                <input type="text" id="Product">
+            </div>
+            <div>
+                <label for="Price">Price:</label>
+                <input type="text" id="Price">
+            </div>
+            <div>
+              <span id="Featured">Featured:</span>
+            </div>
+            <div>
+                <label for="Rating">Rating:</label>
+                <input type="number" id="Rating">
+            </div>
+            <div>
+                <label for="Created On">Created On:</label>
+                <input type="time" id="Created On">
+            </div>
+            <div>
+                <label for="Manufacturer">Manufacturer:</label>
+                <input type="text" id="Manufacturer">
+            </div>
+            <div>
+                <label for="Shipping Status">Shipping Status:</label>
+                <select id="Shipping Status">
+                    <option value="Ordered">Ordered</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+            <button type="button" id="adding-product">add</button>
+            <button type="button" id="edit-cancel">cancel</button>
+        </form>
+    </div>
+    <script src="./fellar-sniffles.js"></script>
+</body>
+</html>
