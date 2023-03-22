@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
       else if(edit_delete === 'delete button pressed') {
-        // this is an update
+        // this is a delete
         suspendInput = true;
         try {
           const productID = editproduct.dataset.id;
