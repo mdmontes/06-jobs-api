@@ -19,7 +19,7 @@ const app = express();
 const connectDB = require('./db/connect');
 const authenticate = require('./middleware/authentication');
 
-// app.use(express.static('public'))
+app.use(express.static('public'))
 
 const authrouter = require('./routes/auth');
 const productsrouter = require('./routes/products');
@@ -49,11 +49,11 @@ app.use(xss());
 // app.get('/', (req, res) => {
 //   res.send('jobs api');
 // });
-app.get('/', (req, res) => {
-  res.send('<h1>Lucky-Sniffles Pet Store API</h1><a href="/api-docs">Documentation</a>');
-});
+// app.get('/', (req, res) => {
+//   res.send('<h1>Lucky-Sniffles Pet Store API</h1><a href="/api-docs">Documentation</a>');
+// });
 
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 // routes
 app.use('/api/v1/auth', authrouter);
 app.use('/api/v1/products', authenticate , productsrouter); 
