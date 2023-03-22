@@ -1,5 +1,6 @@
 require('dotenv').config();
 require('express-async-errors');
+const fs = require("fs");
 
 // extra security packages
 const helmet = require('helmet');
@@ -7,6 +8,10 @@ const cors = require('cors');
 const xss = require('xss-clean');
 const rateLimiter = require('express-rate-limit');
 
+const swaggerUI = require('swagger-ui-express');
+const YAML = require('yaml');
+const file  = fs.readFileSync('./swagger.yaml', 'utf8')
+const swaggerDocument = YAML.parse(file)
 
 const express = require('express');
 const app = express();
@@ -14,9 +19,11 @@ const app = express();
 const connectDB = require('./db/connect');
 const authenticate = require('./middleware/authentication');
 
+// app.use(express.static('public'))
 
 const authrouter = require('./routes/auth');
 const productsrouter = require('./routes/products');
+
 
 
 // error handler
@@ -45,6 +52,8 @@ app.use(xss());
 app.get('/', (req, res) => {
   res.send('<h1>Lucky-Sniffles Pet Store API</h1><a href="/api-docs">Documentation</a>');
 });
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 // routes
 app.use('/api/v1/auth', authrouter);
 app.use('/api/v1/products', authenticate , productsrouter); 
