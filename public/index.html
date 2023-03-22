@@ -69,43 +69,47 @@
                 <th colspan="2"></th>
             </tr>
         </table>
-        <button type="button" id="add-product">add product</button>
+        <button type="button" id="add-product">Add Product</button>
     </div>
     <div id="edit-product" style="display:none;">
         <form>
             <div>
-                <label for="Product">Product:</label>
-                <input type="text" id="Product">
+                <label for="product">Product:</label>
+                <input type="text" id="product">
             </div>
             <div>
-                <label for="Price">Price:</label>
-                <input type="text" id="Price">
+                <label for="price">Price:</label>
+                <input type="number" id="price">
             </div>
             <div>
-              <span id="Featured">Featured:</span>
+              <label for="featured">Featured?</label>
+              <select id="featured">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
             </div>
             <div>
-                <label for="Rating">Rating:</label>
-                <input type="number" id="Rating">
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating">
             </div>
             <div>
-                <label for="Created On">Created On:</label>
-                <input type="time" id="Created On">
+                <!-- <span id="created-on">Created On:</span> -->
+           
             </div>
             <div>
-                <label for="Manufacturer">Manufacturer:</label>
-                <input type="text" id="Manufacturer">
+                <label for="manufacturer">Manufacturer:</label>
+                <input type="text" id="manufacturer">
             </div>
             <div>
-                <label for="Shipping Status">Shipping Status:</label>
-                <select id="Shipping Status">
-                    <option value="Ordered">Ordered</option>
-                    <option value="Shipped">Shipped</option>
-                    <option value="Completed">Completed</option>
+                <label for="shipping-status">Shipping Status:</label>
+                <select id="shipping-status">
+                    <option value="ordered">Ordered</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="completed">Completed</option>
                 </select>
             </div>
-            <button type="button" id="adding-product">add</button>
-            <button type="button" id="edit-cancel">cancel</button>
+            <button type="button" id="adding-product">Add</button>
+            <button type="button" id="edit-cancel">Cancel</button>
         </form>
     </div>
     <script src="./fellar-sniffles.js"></script>

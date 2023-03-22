@@ -11,7 +11,7 @@ const createProduct = async (req, res) =>{
   req.body.createdBy_ID = req.user.userId
   req.body.user_name = req.user.name
   const product = await Product.create(req.body) 
-  res.status(StatusCodes.CREATED).json(product);
+  res.status(StatusCodes.CREATED).json({product, msg:`the product ${product.name} was created`});
 }
 
 const getOneProduct = async (req, res) =>{
@@ -40,15 +40,15 @@ const editOneProduct = async (req, res) =>{
     throw new BadRequestError(`Bad Request Error. Check to make sure you properly modified the NAME, PRICE, and/or MANUFACTURER`)
   }
 
-  const products = await Product.findByIdAndUpdate(
+  const product = await Product.findByIdAndUpdate(
     {_id: productID, createdBy_ID: userId },
     req.body,
     { new: true, runValidators: true })
   
-  if (!products) {
+  if (!product) {
     throw new NotFoundError(`No product with id ${productID}`)}
 
-  res.status(StatusCodes.OK).json(products)
+  res.status(StatusCodes.OK).json({product, msg:`the product ${product.name} was updated`})
 }
 
 const deleteOneProduct = async (req, res) =>{
@@ -64,7 +64,7 @@ const deleteOneProduct = async (req, res) =>{
   if (!products) {
     throw new NotFoundError(`No product with id ${productID}`)}
 
-  res.status(StatusCodes.OK).json({msg: `The product ${products.name} with productid ${products._id} was deleted`});  
+  res.status(StatusCodes.OK).json({msg: `The product ${products.name} with productid was deleted`});  
 }
 
 module.exports = {
