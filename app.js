@@ -25,7 +25,6 @@ const authrouter = require('./routes/auth');
 const productsrouter = require('./routes/products');
 
 
-
 // error handler
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');

@@ -12,7 +12,8 @@ const autheticateToken = async (req,res,next) =>{
   const token = authHeader.split(' ')[1]
 
   // jwt function uses callback function as seen in WebDev Simplified
-  jwt.verify(token, process.env.JWT_SECRET,(error,decoded)=>{
+  jwt.verify(token, process.env.JWT_SECRET,{expiresIn:'60',
+},(error,decoded)=>{
     if (error) {
       throw new UnauthenticatedError(`Token was recognized, but for this user and token, the following resource cannot be provided`)};
     const {name, userId} = decoded 
